@@ -22,5 +22,6 @@ public class OrganiserDTO {
 
     private List<EventDTO> events;
 
+
     // Getters and Setters
 }

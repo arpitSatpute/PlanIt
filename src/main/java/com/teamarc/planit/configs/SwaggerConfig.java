@@ -17,7 +17,7 @@ public class SwaggerConfig {
                 .addSecurityItem(new SecurityRequirement().addList("bearerAuth"))
                 .components(new Components().addSecuritySchemes("bearerAuth",
                         new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerFormat("JWT")))
-                .info(new Info().title("Careerly API").version("1.0").description("API documentation for Careerly"));
+                .info(new Info().title("PlanIt API").version("1.0").description("API documentation for PlanIt"));
 
     }
 }

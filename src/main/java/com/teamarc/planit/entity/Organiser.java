@@ -1,5 +1,6 @@
 package com.teamarc.planit.entity;
 
+import com.teamarc.planit.dto.RequestOrganiserDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +28,10 @@ public class Organiser {
 
     @OneToMany
     private List<Event> events;
+
+    @OneToMany
+    @JoinColumn(name = "organiser_id")
+    private List<RequestOrganiser> requestOrganisers;
+
 
 }
