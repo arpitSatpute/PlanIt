@@ -56,7 +56,8 @@ public class EventService {
     }
 
     public TicketDTO bookEvent(Long eventId) {
-        return eventBookingService.bookEvent(eventId, participantService.getCurrentParticipant());
+        Event event = modelMapper.map(getEventById(eventId), Event.class);
+        return eventBookingService.bookEvent(event, participantService.getCurrentParticipant());
     }
 
 }

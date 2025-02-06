@@ -10,12 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class EventBookingService {
-    private final EventService eventService;
     private final ModelMapper modelMapper;
     private final PaymentService paymentService;
 
-    public TicketDTO bookEvent(Long eventId, Participant currentParticipant) {
-        Event event = modelMapper.map(eventService.getEventById(eventId), Event.class);
+    public TicketDTO bookEvent(Event event, Participant currentParticipant) {
         if(!(event.getCapacity()<= (long) event.getParticipants().size())){
             throw new RuntimeException("Event is full");
         }
