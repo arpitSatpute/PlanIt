@@ -65,7 +65,7 @@ public class ParticipantService {
 
     }
 
-    private Participant getCurrentParticipant() {
+    public Participant getCurrentParticipant() {
 
             User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             return participantRepository.findByUser(user)

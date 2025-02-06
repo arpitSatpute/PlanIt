@@ -1,6 +1,7 @@
 package com.teamarc.planit.services;
 
 import com.teamarc.planit.dto.EventDTO;
+import com.teamarc.planit.dto.TicketDTO;
 import com.teamarc.planit.entity.Event;
 import com.teamarc.planit.entity.Participant;
 import com.teamarc.planit.repository.EventRepository;
@@ -21,6 +22,8 @@ public class EventService {
 
     private final EventRepository eventRepository;
     private final ModelMapper modelMapper;
+    private final ParticipantService participantService;
+    private final EventBookingService eventBookingService;
 
     public EventDTO getEventById(Long eventId) {
         return modelMapper.map(eventRepository.findById(eventId), EventDTO.class);
@@ -51,4 +54,9 @@ public class EventService {
     public void deleteEvent(Long eventId) {
         eventRepository.deleteById(eventId);
     }
+
+    public TicketDTO bookEvent(Long eventId) {
+        return eventBookingService.bookEvent(eventId, participantService.getCurrentParticipant());
+    }
+
 }

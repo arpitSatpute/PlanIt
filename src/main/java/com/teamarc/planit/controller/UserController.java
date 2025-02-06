@@ -8,12 +8,14 @@ import com.teamarc.planit.services.ParticipantService;
 import com.teamarc.planit.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/user")
+@Secured("ROLE_USER")
 public class UserController {
 
     private final ParticipantService participantService;
