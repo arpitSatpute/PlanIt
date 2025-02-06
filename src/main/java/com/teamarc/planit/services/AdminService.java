@@ -106,17 +106,14 @@ public class AdminService {
     }
 
     public void rejectOrganizer(Long userId) {
-        User user = userService.getUserById(userId);
-        onboardOrganiserRepository.deleteByUser(user);
+        onboardOrganiserRepository.deleteByUserId(userId);
     }
 
     public void rejectHost(Long userId) {
-        User user = userService.getUserById(userId);
-        onboardOrganiserRepository.deleteByUser(user);
+        onboardOrganiserRepository.deleteByUserId(userId);
     }
 
     public void rejectServiceProvider(Long userId) {
-        User user = userService.getUserById(userId);
-        onboardOrganiserRepository.deleteByUser(user);
+        onboardOrganiserRepository.deleteByUserId(userId);
     }
 }

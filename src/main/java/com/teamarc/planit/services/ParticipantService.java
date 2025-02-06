@@ -5,19 +5,15 @@ import com.teamarc.planit.entity.Participant;
 import com.teamarc.planit.entity.User;
 import com.teamarc.planit.exceptions.ResourceNotFoundException;
 import com.teamarc.planit.repository.ParticipantRepository;
-import jakarta.servlet.http.Part;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ReflectionUtils;
 
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -27,7 +23,7 @@ public class ParticipantService {
     private final ModelMapper modelMapper;
     private final ParticipantRepository participantRepository;
 
-    public void createParticipant(User user) {
+    public void createParticipant(User user, Long userId) {
         Participant participant = new Participant();
         participant.setUser(user);
         participantRepository.save(participant);

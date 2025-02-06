@@ -20,6 +20,7 @@ public class OnboardServiceProvider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Long userId;
     private Type serviceType;
     private String description;
     private String address;

@@ -19,7 +19,7 @@ public class OnboardOrganiser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    private Long userId;
     private String firmName;
     private String description;
     private String address;

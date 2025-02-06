@@ -19,6 +19,7 @@ public class OnboardHost {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Long userId;
     private String address;
     private String contact;
 }

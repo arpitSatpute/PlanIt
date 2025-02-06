@@ -5,6 +5,8 @@ import lombok.Data;
 
 @Data
 public class OnboardServiceProviderDTO {
+
+    private Long userId;
     private Type serviceType;
     private String description;
     private String address;

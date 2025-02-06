@@ -39,15 +39,18 @@ public class UserService implements UserDetailsService {
         return userRepository.findByRoles(role);
     }
 
-    public void createHost(OnboardHostDTO user) {
+    public void createHost(OnboardHostDTO user, Long userId) {
+        user.setUserId(userId);
         onboardHostRepository.save(modelMapper.map(user, OnboardHost.class));
     }
 
-    public void createServiceProvider(OnboardServiceProviderDTO user) {
+    public void createServiceProvider(OnboardServiceProviderDTO user, Long userId) {
+        user.setUserId(userId);
         onboardHostRepository.save(modelMapper.map(user, OnboardHost.class));
     }
 
-    public void createOrganizer(OnboardOrganiserDTO user) {
+    public void createOrganizer(OnboardOrganiserDTO user, Long userId) {
+        user.setUserId(userId);
         onboardHostRepository.save(modelMapper.map(user, OnboardHost.class));
     }
 }

@@ -4,15 +4,11 @@ import com.teamarc.planit.dto.OnboardHostDTO;
 import com.teamarc.planit.dto.OnboardOrganiserDTO;
 import com.teamarc.planit.dto.OnboardServiceProviderDTO;
 import com.teamarc.planit.entity.User;
-import com.teamarc.planit.services.AdminService;
 import com.teamarc.planit.services.ParticipantService;
 import com.teamarc.planit.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RequiredArgsConstructor
@@ -20,32 +16,30 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    private final HostService hostService;
     private final ParticipantService participantService;
-    private final AdminService adminService;
     private final UserService userService;
 
-    @PostMapping("/request/participant")
-    public ResponseEntity<Void> requestParticipant(@RequestBody User user) {
-        participantService.createParticipant(user);
+    @PostMapping("/request/participant/{userId}")
+    public ResponseEntity<Void> requestParticipant(@RequestBody User user, @PathVariable Long userId) {
+        participantService.createParticipant(user, userId);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/request/host")
-    public ResponseEntity<Void> requestHost(OnboardHostDTO user) {
-        userService.createHost(user);
+    @PostMapping("/request/host/{userId}")
+    public ResponseEntity<Void> requestHost(OnboardHostDTO user, @PathVariable Long userId) {
+        userService.createHost(user, userId);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/request/serviceProvider")
-    public ResponseEntity<Void> requestServiceProvider(OnboardServiceProviderDTO user) {
-        userService.createServiceProvider(user);
+    @PostMapping("/request/serviceProvider/{userId}")
+    public ResponseEntity<Void> requestServiceProvider(OnboardServiceProviderDTO user, @PathVariable Long userId) {
+        userService.createServiceProvider(user, userId);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/request/orgainzer")
-    public ResponseEntity<Void> requestOrganizer(OnboardOrganiserDTO user) {
-        userService.createOrganizer(user);
+    @PostMapping("/request/orgainzer/{userId}")
+    public ResponseEntity<Void> requestOrganizer(OnboardOrganiserDTO user, @PathVariable Long userId) {
+        userService.createOrganizer(user, userId);
         return ResponseEntity.ok().build();
     }
 
