@@ -20,7 +20,7 @@ public class Rating {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal ratingValue;
+    private Double ratingValue;
 
     private String comment;
 

@@ -23,7 +23,7 @@ public class ServiceProvider {
 
     @ElementCollection(fetch = FetchType.EAGER)
     @Enumerated(EnumType.STRING)
-    private Set<Type> type;
+    private Set<Type> serviceType;
 
     private String description;
     private String address;
@@ -35,5 +35,4 @@ public class ServiceProvider {
     @OneToMany
     private List<Event> events;
 
-    // Getters and Setters
 }

@@ -1,6 +1,7 @@
 package com.teamarc.planit.services;
 
 
+import com.teamarc.planit.entity.Event;
 import com.teamarc.planit.entity.User;
 import com.teamarc.planit.entity.Wallet;
 import com.teamarc.planit.entity.WalletTransaction;

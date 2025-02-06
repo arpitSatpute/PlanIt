@@ -49,10 +49,10 @@ public class Event {
     private Ticket ticket;
 
     @OneToOne
-    private User host;
+    private Host host;
 
     @OneToOne
-    private User organizer;
+    private Organiser organizer;
 
     @OneToMany
     private List<Participant> participants;
@@ -60,5 +60,4 @@ public class Event {
     @OneToMany
     private List<ServiceProvider> serviceProviders;
 
-    // Getters and Setters
 }

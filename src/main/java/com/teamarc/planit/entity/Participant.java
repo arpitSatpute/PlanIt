@@ -31,5 +31,4 @@ public class Participant {
     @OneToMany
     private List<Ticket> tickets;
 
-    // Getters and Setters
 }

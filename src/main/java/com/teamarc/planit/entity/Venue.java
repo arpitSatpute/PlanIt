@@ -23,5 +23,4 @@ public class Venue {
     @ManyToOne
     private ServiceProvider owner;
 
-    // Getters and Setters
 }

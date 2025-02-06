@@ -34,6 +34,7 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final JWTService jwtService;
     private final UserService userService;
+    private final WalletService walletService;
 
 
     public String[] login(String email, String password) {
@@ -56,7 +57,7 @@ public class AuthService {
         mappedUser.setRoles(Set.of(Role.User));
         mappedUser.setPassword(passwordEncoder.encode(mappedUser.getPassword()));
         User savedUser = userRepository.save(mappedUser);
-        //TODO call any role service to create its role
+        walletService.createNewWallet(savedUser);
         return modelMapper.map(savedUser, UserDTO.class);
     }
 

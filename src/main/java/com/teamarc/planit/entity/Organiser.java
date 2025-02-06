@@ -30,5 +30,4 @@ public class Organiser {
     @OneToMany
     private List<Event> events;
 
-    // Getters and Setters
 }

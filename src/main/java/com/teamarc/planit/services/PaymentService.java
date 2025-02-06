@@ -1,6 +1,7 @@
 package com.teamarc.planit.services;
 
 
+import com.teamarc.planit.entity.Event;
 import com.teamarc.planit.entity.Payment;
 import com.teamarc.planit.entity.enums.PaymentStatus;
 import com.teamarc.planit.exceptions.ResourceNotFoundException;
@@ -15,17 +16,17 @@ public class PaymentService{
     private final WalletPaymentStrategy walletPaymentStrategy;
     private final PaymentRepository paymentRepository;
 
-    public void processPayment(Event event) {
+    public void processPayment(Event event,Long participantId) {
         Payment payment=paymentRepository.findByEvent(event)
-                .orElseThrow(()-> new ResourceNotFoundException("Payment not found for ride with id: "+event.getId()));
-        walletPaymentStrategy.paymentStrategy(payment.getPaymentMethod()).processPayment(payment);
+                .orElseThrow(()-> new ResourceNotFoundException("Payment not found for event with id: "+event.getId()));
+        walletPaymentStrategy.processPayment(payment,participantId);
     }
 
     public Payment createNewPayment(Event event) {
         Payment payment= Payment.builder()
                 .event(event)
                 .paymentStatus(PaymentStatus.PENDING)
-                .amount(event.getFare())
+                .amount(event.getTicketPrice())
                 .build();
         return paymentRepository.save(payment);
     }

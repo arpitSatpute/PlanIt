@@ -27,6 +27,4 @@ public class Host {
 
     @OneToMany
     private List<Event> events;
-
-    // Getters and Setters
 }

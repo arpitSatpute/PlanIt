@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
+
 @Entity
 @Getter
 @Setter
@@ -24,8 +26,7 @@ public class Ticket {
     @OneToOne
     private User participant;
 
-    private Double ticketPrice;
+    private BigDecimal ticketPrice;
     private String qrCode;
 
-    // Getters and Setters
 }
